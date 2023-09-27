@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portaria;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -61,6 +63,26 @@ class UserController extends Controller
             return response()->json(null, 200, ['mensagem' => 'Servidor deletado com sucesso']);
         } catch (QueryException $err) {
             return response()->json($err, 404, ['mensagem' => 'Servidor não pode ser deletado!']);
+        }
+    }
+
+    public function minhasPortarias($matriculaSiape)
+    {
+        try {
+            $user = User::find($matriculaSiape);
+            if (!$user) {
+                return response()->json($user, 404, ['mensagem' => 'Servidor não encontrado!']);
+            }
+            $portarias = DB::table('portarias')
+            ->join('servidor_portarias', 'portarias.numeroPortaria', 'servidor_portarias.numeroPortaria')
+            ->select()
+            ->where('servidor_portarias.matriculaSiape', '=', $matriculaSiape)
+            ->orderBy('dataCriacao', 'DESC')
+            ->get();
+
+            return response()->json($portarias, 200,);
+        } catch (QueryException $err) {
+            return response()->json($err, 404, ['mensagem' => 'Portarias não encontradas!']);
         }
     }
 }
