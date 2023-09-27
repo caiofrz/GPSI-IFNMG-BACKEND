@@ -11,14 +11,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        try {
-            $servidores = User::all();
-            return response()
-                ->json($servidores, 200);
-        } catch (\Throwable $err) {
-            return response()
-                ->json($err, 404, ['mensagem' => 'Servidores não encontrados!']);
+        $users = User::all();
+        if (!$users) {
+            return response()->json($users, 404, ['mensagem' => 'Servidor não encontrado!']);
         }
+        return response()->json($users, 200);
     }
 
 
@@ -58,12 +55,12 @@ class UserController extends Controller
         try {
             $user = User::find($matriculaSiape);
             if (!$user) {
-                return response()->isNotFound($user, 404, ['mensagem' => 'Servidor não encontrado!']);
+                return response()->json($user, 404, ['mensagem' => 'Servidor não encontrado!']);
             }
             $user->delete();
-            return response()->json(null, 200, ['mensagem' => 'Servidor removido com sucesso']);
+            return response()->json(null, 200, ['mensagem' => 'Servidor deletado com sucesso']);
         } catch (QueryException $err) {
-            return response()->json($err, 404, ['mensagem' => 'Servidor não pode ser removido!']);
+            return response()->json($err, 404, ['mensagem' => 'Servidor não pode ser deletado!']);
         }
     }
 }
