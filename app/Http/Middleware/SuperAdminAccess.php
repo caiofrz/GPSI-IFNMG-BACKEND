@@ -16,9 +16,10 @@ class SuperAdminAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() and !Auth::user()->isSuperAdmin) {
+        if (Auth::check() and Auth::user()->isSuperAdmin) {
+            return $next($request);
+        }else {
             return response()->json(['erro' => 'Unauthorized '], 401, [['mensagem' => 'Acesso negado']]);
         }
-        return $next($request);
     }
 }

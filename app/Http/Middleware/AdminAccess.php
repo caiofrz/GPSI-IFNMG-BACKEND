@@ -16,9 +16,10 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() and !Auth::user()->isAdmin) {
-            return response()->json(['erro' => 'Unauthorized '], 401, [['mensagem' => 'Acesso negado']]);
+        if (Auth::check() and Auth::user()->isAdmin) {
+            return $next($request);
+        }else {
+            return response() ->json(['erro' => 'Unauthorized '], 401, [['mensagem' => 'Acesso negado']]);
         }
-        return $next($request);
     }
 }
