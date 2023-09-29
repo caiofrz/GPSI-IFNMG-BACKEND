@@ -14,7 +14,7 @@ class RelatoriosController extends Controller
                 ->join('servidor_portarias', 'users.matriculaSiape', '=', 'servidor_portarias.matriculaSiape')
                 ->select('users.name', DB::raw('COUNT(servidor_portarias.id) AS quantidade'))
                 ->groupBy('users.name')
-                ->orderBy('quantidade')
+                ->orderBy('quantidade', 'desc')
                 ->get();
 
             return response()->json($users, 200);

@@ -21,15 +21,25 @@ class RegisteredUserController extends Controller
     public function store(Request $request): Response
     {
         $request->validate([
-            'matriculaSiape' => ['required', 'integer', 'max:7'],
+            'matriculaSiape' => ['required', 'integer', 'digits:7'],
             'name' => ['required', 'string', 'max:60'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', Rules\Password::defaults()],
             'cargo' => ['required', 'string', 'max:45'],
             'isAdmin' => ['required', 'boolean'],
             'isSuperAdmin' => ['required', 'boolean'],
-            'foto' => ['string'],
+            // 'foto' => ['image'],
         ]);
+
+        if ($request->hasFile('foto')) {
+            try {
+                $extension = $request->file('foto')->getClientOriginalExtension();
+                $fileName = 'foto-' . $request->matriculaSiape . ".{$extension}";
+                $path = $request->file('foto')->storeAs('servidores', $fileName);
+            } catch (\Throwable $err) {
+                return response()->json($err, 500, ['mensagem' => 'Não foi possível fazer upload da foto!']);
+            }
+        } else {$path = null;}
 
         $user = User::create([
             'matriculaSiape' => $request->matriculaSiape,
@@ -39,13 +49,13 @@ class RegisteredUserController extends Controller
             'cargo' => $request->cargo,
             'isAdmin' => $request->isAdmin,
             'isSuperAdmin' => $request->isSuperAdmin,
-            'foto' => $request->foto,
+            // 'foto' => $path,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return response()->noContent();
+        return response($user, 201);
     }
 }

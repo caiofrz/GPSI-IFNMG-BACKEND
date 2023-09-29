@@ -55,7 +55,7 @@ class PortariaController extends Controller
                     return response()->json($err, 500, ['mensagem' => 'Não foi possível fazer upload do documento!']);
                 }
             } else {
-                $path = "sem_arquivo";
+                $path = null;
             }
 
 
