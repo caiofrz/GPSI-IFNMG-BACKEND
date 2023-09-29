@@ -1,0 +1,1284 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: sanctum/csrf-cookie
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Return an empty response simply to trigger the storage of the CSRF cookie in the browser.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: ''
+        headers:
+          cache-control: 'no-cache, private'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjhNSktweGpLM0FlcVh2ZmgxU3MzcVE9PSIsInZhbHVlIjoiRC9CeE15bzZvaHhVSFYzUi85YXd2azFYVkhBd0xmSWN6eEh2UDN4akFaTmIrSG5iZjhvbWVtcTlxOGFnbXJoWGU3WUdPMm1aMHBMd3pKY3FEdmU0Q3MrcWNnL0JTNDgyZkFON3Q2eGhLYzJLUFFiTllZbDZZZWwrNDhvVGl5VHAiLCJtYWMiOiJmZGM1MjZhN2M1NThkNjFhZGI1MjcxZDJkYzBiNzE1NmE0MDU4ZGY1YjNjNzg2MmJhNmZlN2I2NzliMGY4NDNjIiwidGFnIjoiIn0%3D; expires=Thu, 28 Sep 2023 05:17:07 GMT; Max-Age=7200; path=/; samesite=lax; gpsi_ifnmg_backend_session=eyJpdiI6InFXdUpIOGpsYmNkUWErWFB5cmNUV2c9PSIsInZhbHVlIjoiekRjQ1N5WUxtc200T09XeU9tZlFjT1BEb3M3VjFYKzNOSlJaandKNW52K0gwOEdFKzJ2OGhzVzhMZXYyK2pHY2poWW0zV2ZTRFVRU09XaCtkMDVMTlRzWU83aVJFQlpIcjhTM0VORDRlSVlWbVY1TzdTN0svMCtMTi9KOTZWQ0UiLCJtYWMiOiI1Nzk3YzEzYTA2NmJjNGZiMGJkZTk2Yzc2MWQ0MzBkMjU5ZTU0YTVkYjRmMTllOTgyN2I3MjliYWNiMzk0ZjYxIiwidGFnIjoiIn0%3D; expires=Thu, 28 Sep 2023 05:17:07 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: _ignition/health-check
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"can_execute_commands":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: _ignition/execute-solution
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      solution:
+        name: solution
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+      parameters:
+        name: parameters
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      solution: culpa
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: _ignition/update-config
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      theme:
+        name: theme
+        description: ''
+        required: true
+        example: dark
+        type: string
+        enumValues:
+          - light
+          - dark
+          - auto
+        custom: []
+      editor:
+        name: editor
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+      hide_solutions:
+        name: hide_solutions
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      theme: dark
+      editor: culpa
+      hide_solutions: false
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/servidor/{matriculaSiape}/minhasPortarias'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      matriculaSiape:
+        name: matriculaSiape
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      matriculaSiape: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '{}'
+        headers:
+          mensagem: 'Servidor não encontrado!'
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/relatorio/ranking
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"name":"Zena Kuvalis","quantidade":2},{"name":"Jovanny Hegmann Jr.","quantidade":2}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/relatorio/portarias/publicas
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"numeroPortaria":16418983,"dataCriacao":"2020-12-10","dataEncerramento":"1971-01-08","descricao":"V5ECOeWmzh9XgWESOzVhRwHoTgovbODbS2C6zpbQ5hAuA0NvHsnkvS7WIumS0OMgLr3kLUUvgxTYkeVW0892p8SChA9gTQoOt2uq","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":56567026,"dataCriacao":"2002-07-18","dataEncerramento":"1980-05-05","descricao":"RF0Sf13Etvl8BI857WbYNHKUCO2jp3UQbgKiQ5xGqYzgIY7zl3E9spuQD5GvUsB1dwACWyiFDxHSNz5hLarO4vZCyiZx0JVtFSf6","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":274837459,"dataCriacao":"2008-07-15","dataEncerramento":"1978-02-24","descricao":"xoI1Y73rLpe7bV5By2txFpfxyqG8hDxF9GMwU5nnS80B0egaPYHx2BtffuSNmUA7Rd3KfN6Z8i4oZ2qAL9tYD7dOUTHAaEsGmgHX","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":741078134,"dataCriacao":"1986-10-08","dataEncerramento":"1974-12-21","descricao":"ZtuEAMHumn9NigwbdFIhuyggaEOeAErR7TYzUWF7GcoT7sF8I7Z0Do0S8oteZ02foKpqXMxbIJv8JA5pF6NQDz3Vg4XZEjbEuYXm","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":1222558901,"dataCriacao":"1985-07-31","dataEncerramento":"2004-02-12","descricao":"MYMyEsou3PzK1zDy1Ft1a5QFJV6MoaIMg1Q0BsWLooDqnR7U68CkSlkoAXpvlpvEOiFGhyVM92vIW69n0SR7B0poYKm5bm4mM749","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":1398426274,"dataCriacao":"1990-11-04","dataEncerramento":"2023-05-03","descricao":"BkpvgG1MAMvy49XQ0uybOllaPlB7CQh05G4IoQr7Rb0PM3npm4ZC4MvFjizY9EkLFeyfI3VnsJDSCPYYM2QjXPe5T2vegmqzYTMN","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":2136720552,"dataCriacao":"1974-12-05","dataEncerramento":"1977-02-26","descricao":"tzekpTJpl35cKo3SS2rwW6gO7cTTaSsrbSBd2r4pjaAeohtwfkz9XNx2SfjRWEBte0LQ6wCdh0pyxB5VwklxVtBM61jKpJ8PsO0e","isPrivate":0,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":164189830000,"dataCriacao":"2023-01-01","dataEncerramento":null,"descricao":"b","isPrivate":0,"arquivo":"sem_arquivo","created_at":"2023-09-27 18:55:49","updated_at":"2023-09-27 18:55:49"},{"numeroPortaria":1641898300001,"dataCriacao":"2023-01-01","dataEncerramento":null,"descricao":"b","isPrivate":0,"arquivo":"sem_arquivo","created_at":"2023-09-27 18:56:57","updated_at":"2023-09-27 18:56:57"},{"numeroPortaria":16418983000011,"dataCriacao":"2023-01-01","dataEncerramento":null,"descricao":"b","isPrivate":0,"arquivo":"sem_arquivo","created_at":"2023-09-27 18:57:09","updated_at":"2023-09-27 18:57:09"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/relatorio/portarias/privadas
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"numeroPortaria":16,"dataCriacao":"2023-01-01","dataEncerramento":"2023-01-01","descricao":"b","isPrivate":1,"arquivo":"portarias\/portaria-16.pdf","created_at":"2023-09-27 19:18:56","updated_at":"2023-09-27 19:18:56"},{"numeroPortaria":192918810,"dataCriacao":"2002-03-20","dataEncerramento":"1980-03-01","descricao":"DSD56uUABTRwjYJChi6bHxMELqkfivInnQu5WgvMBD79Kb7D1zAZiBWyXX3ME4Ms0keuxHeaTjeTTHJvZNMBSG8dZyuWr72s0cUn","isPrivate":1,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":724719777,"dataCriacao":"1993-05-23","dataEncerramento":"2008-03-26","descricao":"Zn6EzxoB2kknWFQgdeuCc1B6Jh17raML1GLPyDZ4ei6u5pMEpnckwgtzkteCpJjhaKkh302RGy2r2hnZp0mHDzlgOOsnyE0xU4vQ","isPrivate":1,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"},{"numeroPortaria":920082069,"dataCriacao":"1978-03-14","dataEncerramento":"1977-01-14","descricao":"KimlzxUMzSv8OrZ8w0ShalVPQSKknszrMu7vJllAElH3ACrCh8GsqGBMAqv3NstfmDSrks2hLnMemLDdRLOr7tYVHpyTdql8FZ0p","isPrivate":1,"arquivo":null,"created_at":"2023-09-27 18:45:43","updated_at":"2023-09-27 18:45:43"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/relatorio/portarias/permanentes
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"numeroPortaria":164189830000,"dataCriacao":"2023-01-01","dataEncerramento":null,"descricao":"b","isPrivate":0,"arquivo":"sem_arquivo","created_at":"2023-09-27 18:55:49","updated_at":"2023-09-27 18:55:49"},{"numeroPortaria":1641898300001,"dataCriacao":"2023-01-01","dataEncerramento":null,"descricao":"b","isPrivate":0,"arquivo":"sem_arquivo","created_at":"2023-09-27 18:56:57","updated_at":"2023-09-27 18:56:57"},{"numeroPortaria":16418983000011,"dataCriacao":"2023-01-01","dataEncerramento":null,"descricao":"b","isPrivate":0,"arquivo":"sem_arquivo","created_at":"2023-09-27 18:57:09","updated_at":"2023-09-27 18:57:09"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/servidores
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"erro":"Unauthorized "}'
+        headers:
+          0: 'Acesso negado'
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/servidor/{matriculaSiape}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      matriculaSiape:
+        name: matriculaSiape
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      matriculaSiape: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"erro":"Unauthorized "}'
+        headers:
+          0: 'Acesso negado'
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/servidor/{matriculaSiape}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      matriculaSiape:
+        name: matriculaSiape
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      matriculaSiape: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/servidor/{matriculaSiape}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      matriculaSiape:
+        name: matriculaSiape
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      matriculaSiape: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/portarias
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"erro":"Unauthorized "}'
+        headers:
+          0: 'Acesso negado'
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/portaria/{numeroPortaria}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numeroPortaria:
+        name: numeroPortaria
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      numeroPortaria: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"erro":"Unauthorized "}'
+        headers:
+          0: 'Acesso negado'
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/portaria/{numeroPortaria}/documento'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numeroPortaria:
+        name: numeroPortaria
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      numeroPortaria: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"erro":"Unauthorized "}'
+        headers:
+          0: 'Acesso negado'
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '50'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/portaria
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/portaria/{numeroPortaria}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numeroPortaria:
+        name: numeroPortaria
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      numeroPortaria: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/portaria/{numeroPortaria}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      numeroPortaria:
+        name: numeroPortaria
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      numeroPortaria: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: /
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"Laravel":"10.25.0"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjR3WWhZd1BUQ040eVJsNnFFREF5RXc9PSIsInZhbHVlIjoiUzNrN3FHUnU0MGlmU2Z3QTZrNXAwUkF6OU53K0JDbEYrMXpQWGFmRTBKRy8zUlRSY0t6aEhPU2hoVWhndVU4S0Q2QkN2UkRhQ2Z0WDA5OXphK3cvbTJiMExiZE9sMjBMVHFQQVRJeGpLRWhxbmVnNFlFK1JwaUw2Y1JkbVI2L2oiLCJtYWMiOiI0MTg2ZDhmNzI2MGE2YzUzYTQ5YjcwMWI3Yzc3OWQ3Mzg3NDI2NDc0MDFkOWU3Zjk2NTEwMjcyYmE4NzRkYWJmIiwidGFnIjoiIn0%3D; expires=Thu, 28 Sep 2023 05:17:07 GMT; Max-Age=7200; path=/; samesite=lax; gpsi_ifnmg_backend_session=eyJpdiI6IkpmNGN4bllSeW5MblVvM3hrZGUxd0E9PSIsInZhbHVlIjoiVUhNNWl2TzY0V0E5eXUyQkFTWitpN3RoY0dTWENJY2ljcWJhdERzeW04Y04zclFucGlpWlpiK3puUkQxR2RtakxsSHJaM1dWb0t5ckVqbHF1d0ZzeXFZOXQweThvTENKRE10aXhHTXVqQkdnUEpxTG1JdHp5eG85TmY3UDB3cnciLCJtYWMiOiJhMzk3NzZkMjNhOWJlY2YxZDY5NWUxMGIxOTM5ZGI3MmRkNjAyZTcwODM5MzI0Zjk2ODI1NTE5YTJmZTZmYmY0IiwidGFnIjoiIn0%3D; expires=Thu, 28 Sep 2023 05:17:07 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle an incoming registration request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      matriculaSiape:
+        name: matriculaSiape
+        description: 'Must not be greater than 7.'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        custom: []
+      name:
+        name: name
+        description: 'Must not be greater than 60 characters.'
+        required: true
+        example: asyzwszwtxpeqqi
+        type: string
+        enumValues: []
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: jayda.stamm@example.org
+        type: string
+        enumValues: []
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+      cargo:
+        name: cargo
+        description: 'Must not be greater than 45 characters.'
+        required: true
+        example: asyzwszwtxpeqqi
+        type: string
+        enumValues: []
+        custom: []
+      isAdmin:
+        name: isAdmin
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        custom: []
+      isSuperAdmin:
+        name: isSuperAdmin
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+      foto:
+        name: foto
+        description: ''
+        required: false
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      matriculaSiape: 5
+      name: asyzwszwtxpeqqi
+      email: jayda.stamm@example.org
+      password: culpa
+      cargo: asyzwszwtxpeqqi
+      isAdmin: true
+      isSuperAdmin: false
+      foto: culpa
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle an incoming authentication request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: morgan93@example.net
+        type: string
+        enumValues: []
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: '!dx~rc~qhvY2Z^'
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      email: morgan93@example.net
+      password: '!dx~rc~qhvY2Z^'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: forgot-password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle an incoming password reset link request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: morgan93@example.net
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      email: morgan93@example.net
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: reset-password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle an incoming new password request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      token:
+        name: token
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: reichel.zetta@example.net
+        type: string
+        enumValues: []
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      token: culpa
+      email: reichel.zetta@example.net
+      password: culpa
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'verify-email/{id}/{hash}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Mark the authenticated user's email address as verified."
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the verify email.'
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+      hash:
+        name: hash
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: culpa
+      hash: culpa
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ikk5ZFQzbHU4RmRzb2FtcVZod25VM3c9PSIsInZhbHVlIjoiZmdYQi9qTVN6NDIvOWdxRkJvWjB3YzlmUE5rdzNSZGIwYis4MXNhdHM2Q29wR0t0ZTNOZE9KNXVhOGJOTnhxc3V1ZVE2SWw3SmphTUtVdWZRUEdGU2FPZ3ZHQlE2WktzYnQvRUxFMU5GS3ovRWRiMzI3UElOcVRpYjk3WGJud0wiLCJtYWMiOiIxNTNkNWUzNWZlZjgzOGJlNDI3MDJjYjU3NWU5MjEzYzBhYjdmZTYyNmJhYmM1N2ZkYzEyYmU2NjkwZDE3ZjZlIiwidGFnIjoiIn0%3D; expires=Thu, 28 Sep 2023 05:17:07 GMT; Max-Age=7200; path=/; samesite=lax; gpsi_ifnmg_backend_session=eyJpdiI6IjNyWGF3eFo2ZWRtQ28vbWFqUEdtd3c9PSIsInZhbHVlIjoiUkhIcHlnUVNLZ0JMa3VqLzFSNks5cjZEZk03MTRXVThaTGIxNFJxNDk0UFRqYkNRM0ViOWlETjgrU2RwT1hWakozY0FjODRvSzc4VzZNbkN2akY5ZnROTFlwL3N5M0NGL3ZvYVBRNXQyL0xRUWJlTHFoTGlBYjhLd1dqVXpyWmUiLCJtYWMiOiJkYjg3Njg4NTNmNDFlNWQ0YTRhYWJiYWI0MjcyMzRiMzc3YTc1ZDUyODAzNzIzNzUxYzVkZjRiYTcwM2RmZDc2IiwidGFnIjoiIn0%3D; expires=Thu, 28 Sep 2023 05:17:07 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: email/verification-notification
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Send a new email verification notification.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: logout
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Destroy an authenticated session.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
