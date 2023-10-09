@@ -29,7 +29,7 @@ Route::get('/relatorio/portarias/permanentes', [RelatoriosController::class, 'po
 
 
 
-// Route::middleware(['admin', 'superAdmin'])->group(function () {
+Route::middleware(['admin', 'superAdmin'])->group(function () {
 
     Route::get('/servidores', [UserController::class, 'index']);
     Route::get('/servidor/{matriculaSiape}', [UserController::class, 'show']);
@@ -43,7 +43,7 @@ Route::get('/relatorio/portarias/permanentes', [RelatoriosController::class, 'po
     Route::post('/portaria', [PortariaController::class, 'store']);
     Route::put('/portaria/{numeroPortaria}', [PortariaController::class, 'update']);
     Route::delete('/portaria/{numeroPortaria}', [PortariaController::class, 'delete']);
-// });
+});
 
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {

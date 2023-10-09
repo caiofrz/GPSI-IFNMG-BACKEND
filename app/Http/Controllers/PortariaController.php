@@ -33,15 +33,15 @@ class PortariaController extends Controller
     public function store(Request $request)
     {
 
-        // $request->validate([
-        //     'numeroPortaria' => ['required', 'integer'],
-        //     'dataCriacao' => ['required', 'date'],
-        //     'dataEncerramento' => ['date'],
-        //     'descricao' => ['required', 'string'],
-        //     'isPrivate' => ['required', "boolean"],
-        //     'documento' => ['string'],
-        //     'arquivo' => ['required']
-        // ]);
+        $request->validate([
+            'numeroPortaria' => ['required', 'integer'],
+            'dataCriacao' => ['required', 'date'],
+            'dataEncerramento' => ['date'],
+            'descricao' => ['required', 'string'],
+            'isPrivate' => ['required', "boolean"],
+            'documento' => ['string'],
+            'arquivo' => ['required']
+        ]);
 
 
         try {
@@ -58,7 +58,7 @@ class PortariaController extends Controller
                 $path = null;
             }
 
-
+            //o path guarda o caminho do arquivo no servidor
             $portaria = Portaria::create([
                 'numeroPortaria' => $request->numeroPortaria,
                 'dataCriacao' => $request->dataCriacao,
@@ -69,7 +69,7 @@ class PortariaController extends Controller
             ]);
 
             try {
-                // $membrosExternos = $request->pessoasExternas;
+                $membrosExternos = $request->pessoasExternas;
                 $servidoresMembros = $request->servidores;
 
                 if (!empty($servidoresMembros)) {
@@ -83,17 +83,16 @@ class PortariaController extends Controller
                     }
                 }
 
-                // if (!empty($membrosExternos)) {
-                //     foreach ($membrosExternos as $externo => $membro) {
-                //         if (User::find($membro['id'])) {
-                //             $portariaExterno = ServidorPortaria::create([
-                //                 'numeroPortaria' => $request->numeroPortaria,
-                //                 'id' => $membro['id'],
-                //             ]);
-                //         }
-                //     }
-                // }
-
+                if (!empty($membrosExternos)) {
+                    foreach ($membrosExternos as $externo => $membro) {
+                        if (User::find($membro['id'])) {
+                            $portariaExterno = ServidorPortaria::create([
+                                'numeroPortaria' => $request->numeroPortaria,
+                                'id' => $membro['id'],
+                            ]);
+                        }
+                    }
+                }
             } catch (QueryException $err) {
                 return response()->json($err, 500, ['mensagem' => 'Não foi possível cadastrar os membros da portaria!']);
             }
@@ -106,15 +105,15 @@ class PortariaController extends Controller
 
     public function update(Request $request, $numeroPortaria)
     {
-        // $request->validate([
-        //     'numeroPortaria' => ['required', 'integer'],
-        //     'dataCriacao' => ['required', 'date'],
-        //     'dataEncerramento' => ['date'],
-        //     'descricao' => ['required', 'string'],
-        //     'isPrivate' => ['required', "boolean"],
-        //     'documento' => ['string'],
-        //     'arquivo' => ['required']
-        // ]);
+        $request->validate([
+            'numeroPortaria' => ['required', 'integer'],
+            'dataCriacao' => ['required', 'date'],
+            'dataEncerramento' => ['date'],
+            'descricao' => ['required', 'string'],
+            'isPrivate' => ['required', "boolean"],
+            'documento' => ['string'],
+            'arquivo' => ['required']
+        ]);
 
         $portaria = Portaria::find($numeroPortaria);
         if (!$portaria) {
@@ -138,11 +137,11 @@ class PortariaController extends Controller
             $portaria->dataEncerramento = $request->dataEncerramento;
             $portaria->descricao = $request->descricao;
             $portaria->isPrivate = $request->isPrivate;
-            $portaria->arquivo = $path;
+            $portaria->arquivo = $path; //o path guarda o caminho do arquivo no servidor
             $portaria->update();
 
             try {
-                // $membrosExternos = $request->pessoasExternas;
+                $membrosExternos = $request->pessoasExternas;
                 $servidoresMembros = $request->servidores;
 
                 if (!empty($servidoresMembros)) {
@@ -156,16 +155,16 @@ class PortariaController extends Controller
                     }
                 }
 
-                // if (!empty($membrosExternos)) {
-                //     foreach ($membrosExternos as $externo => $membro) {
-                //         if (User::find($membro['id'])) {
-                //             $portariaExterno = ServidorPortaria::create([
-                //                 'numeroPortaria' => $request->numeroPortaria,
-                //                 'id' => $membro['id'],
-                //             ]);
-                //         }
-                //     }
-                // }
+                if (!empty($membrosExternos)) {
+                    foreach ($membrosExternos as $externo => $membro) {
+                        if (User::find($membro['id'])) {
+                            $portariaExterno = ServidorPortaria::create([
+                                'numeroPortaria' => $request->numeroPortaria,
+                                'id' => $membro['id'],
+                            ]);
+                        }
+                    }
+                }
 
             } catch (QueryException $err) {
                 return response()->json($err, 500, ['mensagem' => 'Não foi possível cadastrar os membros da portaria!']);

@@ -28,7 +28,7 @@ class RegisteredUserController extends Controller
             'cargo' => ['required', 'string', 'max:45'],
             'isAdmin' => ['required', 'boolean'],
             'isSuperAdmin' => ['required', 'boolean'],
-            // 'foto' => ['image'],
+            'foto' => ['image'],
         ]);
 
         if ($request->hasFile('foto')) {
@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
             }
         } else {$path = null;}
 
+        //o path guarda o caminho do arquivo no servidor
         $user = User::create([
             'matriculaSiape' => $request->matriculaSiape,
             'name' => $request->name,
@@ -49,7 +50,7 @@ class RegisteredUserController extends Controller
             'cargo' => $request->cargo,
             'isAdmin' => $request->isAdmin,
             'isSuperAdmin' => $request->isSuperAdmin,
-            // 'foto' => $path,
+            'foto' => $path,
         ]);
 
         event(new Registered($user));
